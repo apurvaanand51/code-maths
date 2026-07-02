@@ -84,12 +84,60 @@ function renderMandelbrot() {
                 n++;
             }
 
-            const bright = floor(map(n, 0, maxIterations, 0, 255));
             const index = (x + y * width) * 4;
-            pixels[index + 0] = bright;
-            pixels[index + 1] = bright;
-            pixels[index + 2] = bright;
-            pixels[index + 3] = 255;
+
+            if (n === maxIterations) {
+                // Inside the set: black
+                pixels[index + 0] = 0;
+                pixels[index + 1] = 0;
+                pixels[index + 2] = 0;
+                pixels[index + 3] = 255;
+            } else {
+                // Smooth iteration count for smoother color bands
+                const mag = Math.sqrt(a * a + b * b);
+                const smoothN = n + 1 - Math.log(Math.log(mag)) / Math.log(2);
+                const t = (smoothN / maxIterations) * 20; // repeat cycles for banding
+                const cyclePos = t - Math.floor(t); // 0..1 within a cycle
+
+                let r, g, b_;
+
+                if (cyclePos < 0.3) {
+                    // deep blue -> mid blue
+                    const p = cyclePos / 0.3;
+                    r = lerp(2, 10, p);
+                    g = lerp(10, 40, p);
+                    b_ = lerp(40, 130, p);
+                } else if (cyclePos < 0.55) {
+                    // mid blue -> bright cyan/white edge
+                    const p = (cyclePos - 0.3) / 0.25;
+                    r = lerp(10, 220, p);
+                    g = lerp(40, 240, p);
+                    b_ = lerp(130, 255, p);
+                } else if (cyclePos < 0.7) {
+                    // white -> gold
+                    const p = (cyclePos - 0.55) / 0.15;
+                    r = lerp(220, 255, p);
+                    g = lerp(240, 190, p);
+                    b_ = lerp(255, 60, p);
+                } else if (cyclePos < 0.85) {
+                    // gold -> dark brown (fading toward set edge)
+                    const p = (cyclePos - 0.7) / 0.15;
+                    r = lerp(255, 20, p);
+                    g = lerp(190, 10, p);
+                    b_ = lerp(60, 20, p);
+                } else {
+                    // back to deep blue
+                    const p = (cyclePos - 0.85) / 0.15;
+                    r = lerp(20, 2, p);
+                    g = lerp(10, 10, p);
+                    b_ = lerp(20, 40, p);
+                }
+
+                pixels[index + 0] = floor(r);
+                pixels[index + 1] = floor(g);
+                pixels[index + 2] = floor(b_);
+                pixels[index + 3] = 255;
+            }
         }
     }
 
