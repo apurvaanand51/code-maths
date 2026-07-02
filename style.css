@@ -1,18 +1,24 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
 }
 
 body{
     background-color: #181818;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .title{
-    height: 11%;
+    height: 11vh;
     width: 100%;
-    /* background-color: aliceblue; */
     display: flex;
     justify-content: center;
     align-content: center;
@@ -29,12 +35,70 @@ body{
 }
 
 .main{
-    height: 78%;
+    min-height: 78vh;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    align-content: flex-start;
+    justify-content: start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.main > .card{
+    min-height: 180px;
+    width: calc(33.33% - 1rem);
+    min-width: 260px;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main > .card > .left{
+    width: 40%;
+    height: 26vh;
+    background-color: #fff;
+}
+
+.main > .card > .right{
+    height: 26vh;
+    width: 60%;
+}
+
+.main > .card > .right > .title{
+    height: 35%;
+    width: 100%;
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: sans-serif;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.main > .card > .right > .about{
+    height: 65%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 1.4em;
+    color: #fff;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    font-weight: 100;
+    font-family: sans-serif;
 }
 
 .fotter{
-    height: 11%;
+    height: 11vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -50,4 +114,46 @@ body{
 }
 
 @media (max-width: 800px) {
+    .title{
+        height: 10vh;
+    }
+
+    .main{
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .main > .card{
+        width: 100%;
+        min-width: unset;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .main > .card > .left,
+    .main > .card > .right{
+        width: 100%;
+        height: auto;
+    }
+
+    .main > .card > .left{
+        min-height: 120px;
+        margin-bottom: 0.75rem;
+    }
+
+    .main > .card > .right > .title,
+    .main > .card > .right > .about{
+        height: auto;
+        padding: 0.8rem;
+    }
+
+    .fotter{
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    .fotter > h2{
+        font-size: 1rem;
+        text-align: center;
+    }
 }
