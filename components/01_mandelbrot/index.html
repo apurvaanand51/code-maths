@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madelbrot Sets</title>
+    <title>Mandelbrot Set</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    
+    <div class="page">
+        <div class="note">
+            <span>- Scroll the mouse wheel over the image to zoom the Mandelbrot set. <br>- Use laptop for faster
+                rendering. <br>- For usable source code click on Show Source button.</span>
+            <button id="showSourceBtn" class="source-btn">Show source</button>
+        </div>
+        <div id="canvasWrapper"></div>
+        <div class="footer">
+            <a href="/index.html">← Back</a>
+        </div>
+    </div>
+
+    <div id="sourcePanel" class="source-panel hidden">
+        <div class="source-header">
+            <h2>Page source</h2>
+            <button id="closeSourceBtn" class="source-btn">Close</button>
+        </div>
+        <div id="sourceErrors" class="source-errors"></div>
+        <div class="source-section">
+            <h3>index.html</h3>
+            <pre id="htmlSource"></pre>
+        </div>
+        <div class="source-section">
+            <h3>style.css</h3>
+            <pre id="cssSource"></pre>
+        </div>
+        <div class="source-section">
+            <h3>main.js</h3>
+            <pre id="jsSource"></pre>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/2.2.3/p5.min.js"
+        integrity="sha512-DXg3KpXaQTBbT1aqm9mQ3g//gLudA8R11uA/AXRj4uBIO2jTaU/alQbs43jSccrQJ1wVx8p0EsA43qIekIZLZA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./main.js"></script>
 </body>
-<script src="./main.js"></script>
+
 </html>

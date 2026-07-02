@@ -55,12 +55,19 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 10px 10px #3b3838;
 }
 
 .main > .card > .left{
     width: 40%;
     height: 26vh;
-    background-color: #fff;
+    /* background-color: #fff; */
+}
+
+.main > .card > .left > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .main > .card > .right{

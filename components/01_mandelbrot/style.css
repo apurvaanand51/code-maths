@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: #0b0d17;
+    color: #f4f4f8;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.page {
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+}
+
+.note {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    color: #d7d9e3;
+    font-size: 0.95rem;
+    backdrop-filter: blur(8px);
+}
+
+.source-btn {
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: #f4f4f8;
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.source-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.source-panel {
+    position: fixed;
+    inset: 2rem;
+    z-index: 20;
+    background: rgba(8, 10, 18, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    padding: 1.25rem;
+    overflow: auto;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+}
+
+.source-panel.hidden {
+    display: none;
+}
+
+.source-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.source-errors {
+    color: #ffa39e;
+    margin-bottom: 1rem;
+}
+
+.source-section {
+    margin-bottom: 1rem;
+}
+
+.source-section h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #c9d1ff;
+}
+
+.source-section pre {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 14px;
+    background: #07101f;
+    color: #e6edf8;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow: auto;
+    max-height: 28vh;
+}
+
+#canvasWrapper {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    display: block;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #05070d;
+}
+
+.footer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.footer a {
+    color: #8ec1ff;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .note {
+        font-size: 0.9rem;
+        padding: 0.8rem 0.9rem;
+    }
+}
