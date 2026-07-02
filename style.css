@@ -27,3 +27,27 @@ body{
     font-family: cursive;
     cursor: pointer;
 }
+
+.main{
+    height: 78%;
+    width: 100%;
+}
+
+.fotter{
+    height: 11%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fotter > h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-family: cursive;
+}
+
+@media (max-width: 800px) {
+}
